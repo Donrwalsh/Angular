@@ -38,6 +38,27 @@ As part of adding the new 'selectedHero' display, when I put it above the list i
 
 `>ng generate component hero-detail`
 
-(@Input decorator)[https://v7.angular.io/guide/template-syntax#inputs-outputs]
+[@Input decorator](https://v7.angular.io/guide/template-syntax#inputs-outputs)
 
 `[hero]="selectedHero"` is an Angular [property binding](https://v7.angular.io/guide/template-syntax#property-binding).
+
+4. Services
+
+"Components shouldn't fetch or save data directly and they certainly shouldn't knowingly present fake data. They should focus on presenting data and delegate data access to a service." <- This seems pretty critical.
+
+`>ng generate service hero`
+
+Oooh here comes [dependency injection](https://v7.angular.io/guide/dependency-injection).
+
+A [provider](https://v7.angular.io/guide/providers) is something that can create or deliver a service.
+
+Constructor gets a declaration of the service (dependency injection) but the call to retrieve the list of heroes belongs inside ngOnInit.
+
+The way this is set up to retrieve mock heroes is helpful in tutorial-world, but a more realistic application will have to deal with the fact that the 'getHeroes()' method may not immediately deliver data. I named this method 'getHeroesSynchronous()' since midway through the tutorial we implement a fake asynchronous version. 
+
+Second go at this uses the RxJS Observable library. This new version waits for the `Observable` to emit the array of heroes. Then `subscribe` passes the emitted array to the callback, which sets the component's `heroes` property.
+
+Angular only binds to *public* component properties.
+
+### Questions
+[] Module 4, services importing services. . . This reminds me of challenges facing Bad-Guy, what's the best practice here? As a potential lead, an aside refers to this as a "service-in-service" scenario.
