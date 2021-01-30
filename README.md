@@ -1,6 +1,6 @@
 Targeting Angular 7
 
-Following v7.angular.io/guide/quickstart#prerequisites with a little help from https://stackoverflow.com/questions/43344600/installing-a-specific-version-of-angular-with-angular-cli.
+Following https://v7.angular.io/guide/quickstart#prerequisites with a little help from https://stackoverflow.com/questions/43344600/installing-a-specific-version-of-angular-with-angular-cli.
 
 > npm uninstall -g @angular/cli
 > npm cache clean
@@ -23,3 +23,13 @@ Working to convert seven into the tour of heroes via the tutorial.
 >ng generate component heroes
 
 I actually made a typo here and needed to delete the component. There seems to be no cli command to destroy a component, so what I did was delete the folder under src/app and then modify app.modules.ts to remove references to the destroyed component (two places but highlighted due to missing directory).
+
+2. Displaying a list
+
+`*ngFor` is known as the *repeater directive*.
+
+`(click)="~~~"` is an example of [event binding](https://v7.angular.io/guide/template-syntax#event-binding) syntax.
+
+As part of adding the new 'selectedHero' display, when I put it above the list it breaks spectacularly. The tutorial intends for this to be placed below in which case it fails the expected way. Some sort of top-to-bottom cascade must be going on.
+
+`[class.selected]="hero === selectedHero"` is known as [class binding](https://v7.angular.io/guide/template-syntax#class-binding).
