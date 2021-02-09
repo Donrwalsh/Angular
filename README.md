@@ -61,4 +61,7 @@ Second go at this uses the RxJS Observable library. This new version waits for t
 Angular only binds to *public* component properties.
 
 ### Questions
-[] Module 4, services importing services. . . This reminds me of challenges facing Bad-Guy, what's the best practice here? As a potential lead, an aside refers to this as a "service-in-service" scenario.
+- [ ] Module 4, services importing services. . . This reminds me of challenges facing Bad-Guy, what's the best practice here? As a potential lead, an aside refers to this as a "service-in-service" scenario.
+
+### Tasks
+- [ ] How about getting this basic tutorial app deployed by the jenkins-pi?
